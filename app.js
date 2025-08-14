@@ -30,3 +30,18 @@ function mostrarLista() {
 //conecto el boton con la funcion
 buttonAdd.addEventListener('click', agregarAmigo);
 
+function sortearAmigo() {
+  if (amigos.length === 0) {
+    document.getElementById("resultado").innerHTML = "No hay amigos para sortear.";
+    return; // salir si no hay amigos
+  }
+
+  let indiceAleatorio = Math.floor(Math.random() * amigos.length);
+  let amigoSorteado = amigos[indiceAleatorio];
+
+  document.getElementById("resultado").innerHTML =
+    "El amigo secreto es: " + amigoSorteado;
+}
+
+// conectar botón de sorteo
+document.getElementById("button-draw").addEventListener("click", sortearAmigo);
